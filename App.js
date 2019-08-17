@@ -12,6 +12,7 @@ import {
   createDrawerNavigator
 } from "react-navigation";
 import CustomSideBar from "./components/CustomSideBar";
+import AddStoreScreen from "./screens/AddStoreScreen";
 
 class HomeScreen extends React.Component {
   render() {
@@ -36,11 +37,12 @@ class DetailsScreen extends React.Component {
 const AppNavigator = createDrawerNavigator(
   {
     Home: HomeScreen,
-    Details: DetailsScreen
+    Details: DetailsScreen,
+    AddStore: AddStoreScreen
   },
   {
-    initialRouteName: "Home",
-    contentComponent: CustomSideBar,
+    initialRouteName: "AddStore",
+    contentComponent: CustomSideBar
     // drawerOpenRoute: "DrawerOpen",
     // drawerCloseRoute: "DrawerClose",
     // drawerToggleRoute: "DrawerToggle"
