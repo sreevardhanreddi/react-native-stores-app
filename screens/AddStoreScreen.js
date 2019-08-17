@@ -10,6 +10,9 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import CustomTopBar from "./../components/CustomTopBar";
+import TitleInput from "./../components/TitleInput";
+import DetailInput from "./../components/DetailInput";
+import CameraInput from "./../components/CameraInput";
 
 const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);
@@ -17,11 +20,32 @@ const screenHeight = Math.round(Dimensions.get("window").height);
 class AddStoreScreen extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      title: "",
+      detail: ""
+    };
   }
+
   render() {
     return (
       <View style={styles.container}>
-        <CustomTopBar title={"Add Store"} />
+        <CustomTopBar
+          title={"Add Store asdfasdfasdfasdfasdfasdfasdfasdfasdfasfasdfaa"}
+        />
+
+        <ScrollView>
+          <View>
+            <View style={styles.titleContainer}>
+              <TitleInput />
+            </View>
+            <View style={styles.detailContainer}>
+              <DetailInput />
+            </View>
+            <View style={styles.cameraContainer}>
+              <CameraInput />
+            </View>
+          </View>
+        </ScrollView>
       </View>
     );
   }
@@ -31,23 +55,18 @@ export default AddStoreScreen;
 
 const styles = StyleSheet.create({
   container: {},
-  topHeader: {
-    backgroundColor: "#00adb5",
-    height: screenHeight / 15,
-    alignItems: "center",
-    flexDirection: "row",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 5
+  titleContainer: {
+    marginTop: screenHeight / 30,
+    height: screenHeight / 10,
+    padding: screenWidth / 20
   },
-  iconStyles: {
-    marginLeft: screenWidth / 20,
-    marginRight: screenWidth / 10
+  detailContainer: {
+    marginTop: screenHeight / 30,
+    height: screenHeight / 10,
+    padding: screenWidth / 20
   },
-  textStyles: {
-    color: "white",
-    fontSize: screenHeight / 40
+  cameraContainer: {
+    marginTop: screenHeight / 30,
+    padding: screenWidth / 20
   }
 });

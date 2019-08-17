@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, Dimensions, StatusBar, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { withNavigation } from 'react-navigation';
+import { withNavigation } from "react-navigation";
 
 const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);
@@ -13,19 +13,30 @@ class CustomTopBar extends Component {
 
   toggleSideDrawer = () => {
     this.props.navigation.toggleDrawer();
-    console.log('tapped')
-  }
+    console.log("tapped");
+  };
 
   render() {
+    const maxLimit = 12;
+    const title =
+      this.props.title.length > maxLimit
+        ? this.props.title.substring(0, maxLimit - 3) + " ..."
+        : this.props.title;
+
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="teal" barStyle="light-content" />
         <View style={styles.topHeader}>
           <View style={styles.iconStyles}>
-            <Icon name="md-menu" size={30} color="white" onPress={this.toggleSideDrawer} />
+            <Icon
+              name="md-menu"
+              size={30}
+              color="white"
+              onPress={this.toggleSideDrawer}
+            />
           </View>
           <View>
-            <Text style={styles.textStyles}>{this.props.title}</Text>
+            <Text style={styles.textStyles}>{title}</Text>
           </View>
         </View>
       </View>
