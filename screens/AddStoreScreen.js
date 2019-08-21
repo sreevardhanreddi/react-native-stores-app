@@ -13,6 +13,7 @@ import CustomTopBar from "./../components/CustomTopBar";
 import TitleInput from "./../components/TitleInput";
 import DetailInput from "./../components/DetailInput";
 import CameraInput from "./../components/CameraInput";
+import MapInput from "./../components/MapInput";
 
 const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);
@@ -28,12 +29,11 @@ class AddStoreScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <CustomTopBar
-          title={"Add Store asdfasdfasdfasdfasdfasdfasdfasdfasdfasfasdfaa"}
-        />
-
-        <ScrollView>
+      <ScrollView>
+        <View style={styles.container}>
+          <CustomTopBar
+            title={"Add Store asdfasdfasdfasdfasdfasdfasdfasdfasdfasfasdfaa"}
+          />
           <View>
             <View style={styles.titleContainer}>
               <TitleInput />
@@ -44,9 +44,12 @@ class AddStoreScreen extends Component {
             <View style={styles.cameraContainer}>
               <CameraInput />
             </View>
+            <View style={styles.mapContainer}>
+              <MapInput />
+            </View>
           </View>
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -68,5 +71,10 @@ const styles = StyleSheet.create({
   cameraContainer: {
     marginTop: screenHeight / 30,
     padding: screenWidth / 20
+  },
+  mapContainer: {
+    // ...StyleSheet.absoluteFillObject
+    height: screenHeight,
+    width: screenWidth
   }
 });
